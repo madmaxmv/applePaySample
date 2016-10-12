@@ -20,6 +20,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        if PKPaymentAuthorizationViewController.canMakePayments() {
+            if PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: [.masterCard, .visa]) {
+                print("Yes")
+            } else {
+                print("NO")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
